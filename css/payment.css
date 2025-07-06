@@ -1,0 +1,110 @@
+
+    body {
+      background-color: #0f1d2a;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .payment-container {
+      max-width: 420px;
+      margin: 3rem auto;
+      background: #1c2c3c;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      padding: 2.5rem 2rem 2rem 2rem;
+    }
+    .payment-container h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #ffd700;
+    }
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .payment-method {
+      display: flex;
+      align-items: center;
+      background: #223044;
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.2s;
+    }
+    .payment-method.selected {
+      border: 2px solid #1e90ff;
+      background: #263a4d;
+    }
+    .payment-method img {
+      width: 48px;
+      height: 32px;
+      object-fit: contain;
+      margin-right: 1rem;
+      background: #fff;
+      border-radius: 4px;
+      padding: 2px;
+    }
+    .pay-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(45deg, #3498db, #2980b9);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    .pay-btn:hover {
+      background: linear-gradient(45deg, #2980b9, #3498db);
+    }
+    .amount {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #4caf50;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #bdc3c7;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #34495e;
+      border-radius: 8px;
+      background: #223044;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    .form-group.error input {
+      border-color: #e74c3c;
+    }
+    .form-group.error .error-message {
+      display: block;
+    }

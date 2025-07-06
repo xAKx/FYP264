@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnthemClicks - Professional Photography Services</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/loading_bar.css" />
+    <link rel="stylesheet" href="css/typwriter.css" />
+  </head>
+  <body>
+    <div id="loading-bar-container">
+      <div>
+        <div id="loading-bar-logo">AnthemClicks</div>
+        <div id="loading-bar">
+          <div id="loading-bar-progress"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">AnthemClicks</a>
+        <ul class="nav-menu">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="login.html">Book Session</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+      </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="overlay" onclick="closeSidebar()"></div>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3 class="sidebar-title">Menu</h3>
+        <button class="close-btn" onclick="closeSidebar()">✕</button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="hero-container">
+          <div class="hero-text">
+            <h1>Capture Your Moments with AnthemClicks</h1>
+            <p>
+              Professional photography and videography services for every
+              occasion. Book your session and let us turn your memories into
+              art.
+            </p>
+            <h1>
+              <a
+                class="typewrite"
+                data-period="1000"
+                data-type='[ "Event Photography?", "Potrait Session?", "Product Shoot?", "All We Cover!" ]'
+              >
+                <span class="wrap"></span>
+              </a>
+            </h1>
+            <a href="login.html" class="btn">Book a Session</a>
+          </div>
+          <div class="hero-image">
+            <img
+              src="asset/landing page.png"
+              alt="Wedding Photography"
+              class="hero-slide active"
+            />
+            <img
+              src="asset/landing page2.jpg"
+              alt="Event Photography"
+              class="hero-slide"
+            />
+            <img
+              src="asset/product shoot2.jpg"
+              alt="Product Photoshoot"
+              class="hero-slide"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features" id="services">
+        <div class="features-container">
+          <h2 class="section-title">Why Choose Us?</h2>
+          <div class="features-grid">
+            <a
+              href="services.html"
+              class="feature-card"
+              style="text-decoration: none"
+            >
+              <div class="feature-icon">📸</div>
+              <h3>Expert Photographers</h3>
+              <p>
+                Our team consists of experienced professionals passionate about
+                capturing the perfect shot.
+              </p>
+            </a>
+            <a
+              href="services.html"
+              class="feature-card"
+              style="text-decoration: none"
+            >
+              <div class="feature-icon">🎨</div>
+              <h3>High-Quality Results</h3>
+              <p>
+                We use the latest equipment and editing techniques to deliver
+                stunning images and videos.
+              </p>
+            </a>
+            <a
+              href="services.html"
+              class="feature-card"
+              style="text-decoration: none"
+            >
+              <div class="feature-icon">📅</div>
+              <h3>Flexible Booking</h3>
+              <p>
+                Book your session online at your convenience. We accommodate
+                events, portraits, and more.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>AnthemClicks</h3>
+          <p>Turning moments into memories since 2020.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>
+            Email:
+            <a href="mailto:info@anthemclicks.com">info@anthemclicks.com</a>
+          </p>
+          <p>
+            Phone:
+            <a
+              href="https://api.whatsapp.com/send/?phone=60108244105&text&type=phone_number&app_absent=0"
+              >+60108244105</a
+            >
+          </p>
+          <p>
+            Instagram:
+            <a href="https://www.instagram.com/anthemclicks/" target="_blank"
+              >@anthemclicks</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 AnthemClicks. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="JavaScript/script.js">
+      // // Loading bar logic
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   let progress = 0;
+      //   const bar = document.getElementById("loading-bar-progress");
+      //   const container = document.getElementById("loading-bar-container");
+      //   function animateBar() {
+      //     if (progress < 100) {
+      //       progress += Math.random() * 20 + 10;
+      //       if (progress > 100) progress = 100;
+      //       bar.style.width = progress + "%";
+      //       setTimeout(animateBar, 200);
+      //     } else {
+      //       setTimeout(() => {
+      //         container.style.opacity = 0;
+      //         setTimeout(() => (container.style.display = "none"), 500);
+      //       }, 400);
+      //     }
+      //   }
+      //   animateBar();
+      // });
+
+      // function toggleSidebar() {
+      //   const sidebar = document.querySelector(".sidebar");
+      //   const overlay = document.querySelector(".overlay");
+
+      //   sidebar.classList.add("active");
+      //   overlay.classList.add("active");
+      // }
+
+      // function closeSidebar() {
+      //   const sidebar = document.querySelector(".sidebar");
+      //   const overlay = document.querySelector(".overlay");
+
+      //   sidebar.classList.remove("active");
+      //   overlay.classList.remove("active");
+      // }
+
+      // function loadPage(pageName) {
+      //   // Close sidebar first
+      //   closeSidebar();
+
+      //   // In a real PHP environment, you would redirect to the page
+      //   // For demonstration, we'll show an alert
+      //   alert(`Loading ${pageName}...`);
+
+      // }
+
+      // // Smooth scrolling for navigation links
+      // document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      //   anchor.addEventListener("click", function (e) {
+      //     e.preventDefault();
+      //     const target = document.querySelector(this.getAttribute("href"));
+      //     if (target) {
+      //       target.scrollIntoView({
+      //         behavior: "smooth",
+      //         block: "start",
+      //       });
+      //     }
+      //   });
+      // });
+
+      // // Close sidebar when clicking outside on mobile
+      // document.addEventListener("click", function (e) {
+      //   const sidebar = document.querySelector(".sidebar");
+      //   const menuToggle = document.querySelector(".menu-toggle");
+
+      //   if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+      //     closeSidebar();
+      //   }
+      // });
+    </script>
+  </body>
+</html>

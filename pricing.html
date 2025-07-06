@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - AnthemClicks</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="loading-bar-container">
+    <div>
+      <div id="loading-bar-logo">AnthemClicks</div>
+      <div id="loading-bar">
+        <div id="loading-bar-progress"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">AnthemClicks</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html" class="active">Pricing</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="index.html#contact">Book Session</a></li>
+      </ul>
+      <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    </nav>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="overlay" onclick="closeSidebar()"></div>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3 class="sidebar-title">Menu</h3>
+      <button class="close-btn" onclick="closeSidebar()">✕</button>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </aside>
+
+  <!-- Pricing Section -->
+  <main class="main-content">
+    <section class="pricing-section">
+      <h1 class="section-title">Our Service Pricing</h1>
+      <div class="pricing-table">
+        <div class="pricing-card">
+          <h2>Event Photography</h2>
+          <ul class="service-features">
+            <li>Unlimited candid and group shots</li>
+            <li>Coverage of key moments and highlights</li>
+            <li>Professional editing and retouching</li>
+            <li>High-resolution digital gallery</li>
+            <li>Fast delivery turnaround</li>
+          </ul>
+          <div class="price">RM399</div>
+          <a href="login.html" class="btn">Book Now</a>
+        </div>
+        <div class="pricing-card">
+          <h2>Portrait Sessions</h2>
+          <ul class="service-features">
+            <li>Studio or outdoor location options</li>
+            <li>Guidance on posing and styling</li>
+            <li>Multiple outfit changes</li>
+            <li>Selection of professionally retouched portraits</li>
+            <li>Digital and print-ready files</li>
+          </ul>
+          <div class="price">RM299</div>
+          <a href="login.html" class="btn">Book Now</a>
+        </div>
+        <div class="pricing-card">
+          <h2>Commercial Shoots</h2>
+          <ul class="service-features">
+            <li>Product, real estate, or food photography</li>
+            <li>Creative direction and styling</li>
+            <li>High-resolution images for web & print</li>
+            <li>Fast turnaround for marketing needs</li>
+            <li>Consistent brand-focused editing</li>
+          </ul>
+          <div class="price">RM499</div>
+          <a href="login.html" class="btn">Book Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>AnthemClicks</h3>
+        <p>Turning moments into memories since 2020.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:info@anthemclicks.com">info@anthemclicks.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+        <p>Instagram: <a href="#" target="_blank">@anthemclicks</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AnthemClicks. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Loading bar logic
+    document.addEventListener("DOMContentLoaded", function () {
+      let progress = 0;
+      const bar = document.getElementById("loading-bar-progress");
+      const container = document.getElementById("loading-bar-container");
+      function animateBar() {
+        if (progress < 100) {
+          progress += Math.random() * 20 + 10;
+          if (progress > 100) progress = 100;
+          bar.style.width = progress + "%";
+          setTimeout(animateBar, 200);
+        } else {
+          setTimeout(() => {
+            container.style.opacity = 0;
+            setTimeout(() => (container.style.display = "none"), 500);
+          }, 400);
+        }
+      }
+      animateBar();
+    });
+    function toggleSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      const overlay = document.querySelector(".overlay");
+      sidebar.classList.add("active");
+      overlay.classList.add("active");
+    }
+    function closeSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      const overlay = document.querySelector(".overlay");
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+    }
+    document.addEventListener("click", function (e) {
+      const sidebar = document.querySelector(".sidebar");
+      const menuToggle = document.querySelector(".menu-toggle");
+      if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeSidebar();
+      }
+    });
+  </script>
+</body>
+</html> 

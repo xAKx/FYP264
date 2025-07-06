@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt - AnthemClicks</title>
+    <link rel="stylesheet" href="asset/styles.css">
+    <link rel="stylesheet" href="css/receipt.css">
+    
+</head>
+<body>
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h2>Payment Receipt</h2>
+        </div>
+        <div class="receipt-details" id="receiptDetails">
+            <div style="text-align:center; color:#bdc3c7;">Loading receipt...</div>
+        </div>
+        <div class="receipt-footer no-print">
+            <button class="print-button" onclick="window.print()">Print Receipt</button>
+            <a href="dashboard.php" class="btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+    <script>
+    // Fetch receipt details from backend
+    (async function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const service_ID = urlParams.get('service_ID');
+        const type = urlParams.get('type');
+        if (!service_ID || !type) {
+            document.getElementById('receiptDetails').innerHTML = '<div class="text-danger">Invalid receipt request.</div>';
+            return;
+        }
+        try {
+            const response = await fetch(`get_receipt.php?service_ID=${service_ID}&type=${type}`);
+            const data = await response.json();
+            if (data.success) {
+                document.getElementById('receiptDetails').innerHTML = `
+                    <div><strong>Name:</strong> <span>${data.full_name}</span></div>
+                    <div><strong>Email:</strong> <span>${data.email}</span></div>
+                    <div><strong>Service:</strong> <span>${data.service_type}</span></div>
+                    <div><strong>Details:</strong> <span>${data.details}</span></div>
+                    <div><strong>Invoice #:</strong> <span>${data.invoiceID}</span></div>
+                    <div><strong>Payment Type:</strong> <span>${data.payment_type}</span></div>
+                    <div><strong>Amount Paid:</strong> <span>RM ${data.amount}</span></div>
+                    <div><strong>Date:</strong> <span>${data.date}</span></div>
+                `;
+            } else {
+                document.getElementById('receiptDetails').innerHTML = `<div class="text-danger">${data.error || 'Failed to load receipt.'}</div>`;
+            }
+        } catch (e) {
+            document.getElementById('receiptDetails').innerHTML = '<div class="text-danger">Failed to load receipt.</div>';
+        }
+    })();
+    </script>
+</body>
+</html>

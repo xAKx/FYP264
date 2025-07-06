@@ -1,0 +1,36 @@
+#loading-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0f1d2a;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+}
+#loading-bar {
+  width: 320px;
+  height: 8px;
+  background: #223044;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.18);
+}
+#loading-bar-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1e90ff 0%, #8bb6f7 100%);
+  border-radius: 8px;
+  transition: width 0.4s;
+}
+#loading-bar-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e90ff;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}

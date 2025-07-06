@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - AnthemClicks</title>
+    <link rel="stylesheet" href="asset/styles.css">
+    <link rel="stylesheet" href="css/signup.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Create an Account</h2>
+      <!-- ERROR MESSAGE PLACEHOLDER: This will be filled by PHP if redirected back with an error. -->
+      <div id="phpErrorMessage"></div>
+      <form id="signupForm" method="POST" action="signup.php">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required />
+        <div class="error-message" id="fullNameError"></div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error-message" id="emailError"></div>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required />
+        <div class="error-message" id="phoneError"></div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <div class="error-message" id="passwordError"></div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required />
+        <div class="error-message" id="confirmPasswordError"></div>
+
+        <button type="submit">Sign Up</button>
+        <p class="redirect">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
+
+    <script>
+      // Function to validate email format
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      // Function to validate phone number format
+      function validatePhone(phone) {
+        const re = /^(\+?6?01)[0-46-9]-*[0-9]{7,8}$/;
+        return re.test(phone);
+      }
+
+      // Function to validate password strength
+      function validatePassword(password) {
+        // At least 8 characters, 1 uppercase, 1 lowercase, 1 number
+        const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        return re.test(password);
+      }
+
+      // Function to show error message
+      function showError(elementId, message) {
+        const errorElement = document.getElementById(elementId);
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+      }
+
+      // Function to clear error message
+      function clearError(elementId) {
+        const errorElement = document.getElementById(elementId);
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+      }
+
+      // Function to handle form submission
+      function handleSignup(event) {
+        // Clear previous errors
+        ['fullNameError', 'emailError', 'phoneError', 'passwordError', 'confirmPasswordError'].forEach(clearError);
+
+        // Get form values
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Validate inputs
+        let isValid = true;
+
+        if (fullName.length < 2) {
+          showError('fullNameError', 'Name must be at least 2 characters long');
+          isValid = false;
+        }
+
+        if (!validateEmail(email)) {
+          showError('emailError', 'Please enter a valid email address');
+          isValid = false;
+        }
+
+        if (!validatePhone(phone)) {
+          showError('phoneError', 'Please enter a valid Malaysian phone number');
+          isValid = false;
+        }
+
+        if (!validatePassword(password)) {
+          showError('passwordError', 'Password must be at least 8 characters long and contain uppercase, lowercase, and numbers');
+          isValid = false;
+        }
+
+        if (password !== confirmPassword) {
+          showError('confirmPasswordError', 'Passwords do not match');
+          isValid = false;
+        }
+
+        if (!isValid) {
+          event.preventDefault();
+          return false;
+        }
+
+        // If validation passes, form will submit normally to signup.php
+        return true;
+      }
+
+      // Add event listener to form
+      document.getElementById('signupForm').addEventListener('submit', handleSignup);
+
+      // Display PHP error message if present in sessionStorage (set by signup.php on redirect)
+      window.onload = function() {
+        if (sessionStorage.getItem('phpErrorMessage')) {
+          document.getElementById('phpErrorMessage').innerHTML = '<div style="background-color: #ff6b6b; color: white; padding: 10px; border-radius: 8px; margin-bottom: 1rem;">' + sessionStorage.getItem('phpErrorMessage') + '</div>';
+          sessionStorage.removeItem('phpErrorMessage');
+        }
+      };
+    </script>
+  </body>
+</html>

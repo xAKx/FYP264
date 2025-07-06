@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - AnthemClicks</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">AnthemClicks</a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="login.html">Book Session</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+      </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="overlay" onclick="closeSidebar()"></div>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3 class="sidebar-title">Menu</h3>
+        <button class="close-btn" onclick="closeSidebar()">✕</button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="gallery-section">
+        <h1 class="gallery-title">Our Work</h1>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="asset/landing page.png" alt="Wedding Photography" onclick="openModal(this.src, this.alt)">
+          </div>
+          <div class="gallery-item">
+            <img src="asset/landing page2.jpg" alt="Potrait Photography" onclick="openModal(this.src, this.alt)">
+          </div>
+          <div class="gallery-item">
+            <img src="asset/product shoot.jpg" alt="Product Photography" onclick="openModal(this.src, this.alt)">
+          </div>
+          <div class="gallery-item">
+            <img src="asset/product shoot2.jpg" alt="Product Photography" onclick="openModal(this.src, this.alt)">
+          </div>
+          <div class="gallery-item">
+            <img src="asset/landing page3.jpg" alt="Gallery Image 5" onclick="openModal(this.src, this.alt)">
+          </div>    
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Lightbox -->
+    <div id="galleryModal" class="modal">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div id="caption"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>AnthemClicks</h3>
+          <p>Turning moments into memories since 2020.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>
+            Email:
+            <a href="mailto:info@anthemclicks.com">info@anthemclicks.com</a>
+          </p>
+          <p>Phone: <a href="https://api.whatsapp.com/send/?phone=60108244105&text&type=phone_number&app_absent=0">+60108244105</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/anthemclicks/" target="_blank">@anthemclicks</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 AnthemClicks. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0f1d2a;
+        color: white;
+      }
+
+      header {
+        background-color: #1c2c3c;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        color: #1e90ff;
+        margin-left: 1.5rem;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        padding: 2rem;
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+      }
+
+      .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        flex: 2 1 400px;
+        min-width: 320px;
+      }
+
+      .card {
+        background-color: #1c2c3c;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        margin-bottom: 0;
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .card p {
+        margin: 0.5rem 0;
+      }
+
+      .cta-button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.6rem 1.2rem;
+        background: linear-gradient(90deg, #1e90ff 0%, #4f8cff 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background 0.3s ease, transform 0.15s;
+        box-shadow: 0 2px 8px rgba(30, 144, 255, 0.10);
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(90deg, #1c78d2 0%, #3a6fd8 100%);
+        transform: scale(1.04);
+      }
+
+      .service-request {
+        flex: 1 1 320px;
+        min-width: 300px;
+        margin-left: 2rem;
+      }
+
+      .service-request .card {
+        min-width: 260px;
+      }
+
+      .product-shot {
+        display: flex;
+        align-items: center;
+        background: #223044;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .product-shot img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 1rem;
+      }
+
+      .product-shot div {
+        color: #fff;
+      }
+
+      .product-shot .price {
+        font-size: 0.95rem;
+        color: #ffd700;
+      }
+
+      .product-shot .status {
+        font-size: 0.95rem;
+        color: #6c63ff;
+        font-weight: 600;
+      }
+
+      .product-shot .cta-button {
+        box-sizing: border-box;
+        max-width: 220px;
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      .product-shot form {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+      }
+
+      .proceed-final-btn {
+        background: linear-gradient(90deg, #ffd700 0%, #ffe066 100%);
+        color: #222;
+        font-weight: bold;
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        border: 1.5px solid #ffe066;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        box-sizing: border-box;
+        max-width: 220px;
+        text-align: center;
+        white-space: normal;
+        box-shadow: 0 4px 16px rgba(255, 215, 0, 0.13);
+      }
+
+      .proceed-final-btn:hover {
+        background: linear-gradient(90deg, #ffe066 0%, #ffd700 100%);
+        transform: scale(1.05);
+        box-shadow: 0 6px 24px rgba(255, 215, 0, 0.18);
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .service-request {
+          margin-left: 0;
+          margin-top: 2rem;
+        }
+      }
+
+      .loading {
+        text-align: center;
+        padding: 1rem;
+        color: #1e90ff;
+      }
+
+      .error-message {
+        color: #ff6b6b;
+        text-align: center;
+        padding: 1rem;
+      }

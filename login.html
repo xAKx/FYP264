@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - AnthemClicks</title>
+    <link rel="stylesheet" href="asset/styles.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <div class="form-container">
+      <a href="index.html" class="back-button">
+        <span class="material-icons">arrow_back</span> Back
+      </a>
+      <h2>Login to AnthemClicks</h2>
+      <!-- ERROR MESSAGE PLACEHOLDER: This will be filled by PHP if redirected back with an error. -->
+      <div id="phpErrorMessage"></div>
+      <form id="loginForm" method="POST" action="login.php">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error-message" id="emailError"></div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <div class="error-message" id="passwordError"></div>
+
+        <div class="remember-me">
+          <input type="checkbox" id="rememberMe" name="rememberMe" />
+          <label for="rememberMe">Remember me</label>
+        </div>
+
+        <button type="submit">Login</button>
+        <p class="redirect">
+          Don't have an account? <a href="signup.html">Sign Up</a>
+        </p>
+      </form>
+    </div>
+    <script src="JavaScript/script.js">
+      // // Function to validate email format
+      // function validateEmail(email) {
+      //   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      //   return re.test(email);
+      // }
+      // // Function to show error message
+      // function showError(elementId, message) {
+      //   const errorElement = document.getElementById(elementId);
+      //   errorElement.textContent = message;
+      //   errorElement.style.display = "block";
+      // }
+      // // Function to clear error message
+      // function clearError(elementId) {
+      //   const errorElement = document.getElementById(elementId);
+      //   errorElement.textContent = "";
+      //   errorElement.style.display = "none";
+      // }
+      // // Function to handle form submission
+      // function handleLogin(event) {
+      //   // Clear previous errors
+      //   ["emailError", "passwordError"].forEach(clearError);
+      //   // Get form values
+      //   const email = document.getElementById("email").value.trim();
+      //   const password = document.getElementById("password").value;
+      //   // Validate inputs
+      //   let isValid = true;
+      //   if (!validateEmail(email)) {
+      //     showError("emailError", "Please enter a valid email address");
+      //     isValid = false;
+      //   }
+      //   if (password.length < 8) {
+      //     showError(
+      //       "passwordError",
+      //       "Password must be at least 8 characters long"
+      //     );
+      //     isValid = false;
+      //   }
+      //   if (!isValid) {
+      //     event.preventDefault();
+      //     return false;
+      //   }
+      //   // If validation passes, form will submit normally to login.php
+      //   return true;
+      // }
+      // document
+      //   .getElementById("loginForm")
+      //   .addEventListener("submit", handleLogin);
+      // // Display PHP error message if present in sessionStorage (set by login.php on redirect)
+      // window.onload = function () {
+      //   if (sessionStorage.getItem("phpErrorMessage")) {
+      //     document.getElementById("phpErrorMessage").innerHTML =
+      //       '<div style="background-color: #ff6b6b; color: white; padding: 10px; border-radius: 8px; margin-bottom: 1rem;">' +
+      //       sessionStorage.getItem("phpErrorMessage") +
+      //       "</div>";
+      //     sessionStorage.removeItem("phpErrorMessage");
+      //   }
+      // };
+    </script>
+  </body>
+</html>
